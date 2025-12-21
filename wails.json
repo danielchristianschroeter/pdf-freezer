@@ -1,0 +1,13 @@
+{
+  "$schema": "https://wails.io/schemas/config.v2.json",
+  "name": "pdf-freezer",
+  "outputfilename": "pdf-freezer",
+  "frontend:install": "npm install",
+  "frontend:build": "npm run build",
+  "frontend:dev:watcher": "npm run dev",
+  "frontend:dev:serverUrl": "auto",
+  "author": {
+    "name": "Daniel Christian Schroeter",
+    "email": "2836188+danielchristianschroeter@users.noreply.github.com"
+  }
+}

@@ -1,0 +1,25 @@
+version: '3'
+
+tasks:
+  build:
+    desc: Build the application
+    cmds:
+      - task: build:frontend
+      - task: build:backend
+
+  # Wails 3 on Mac calls this
+  darwin:build:
+    cmds:
+      - task: build
+
+  build:frontend:
+    dir: frontend
+    cmds:
+      - npm install
+      - npm run build
+
+  build:backend:
+    env:
+      MACOSX_DEPLOYMENT_TARGET: '13.3'
+    cmds:
+      - go build -o pdf-freezer ./cmd/pdf-freezer
