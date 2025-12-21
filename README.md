@@ -50,7 +50,7 @@ pdf-freezer/
 
 ### Prerequisites
 - Go 1.25+
-- Node.js 18+
+- Node.js 20+
 - Wails v3 CLI (`go install github.com/wailsapp/wails/v3/cmd/wails3@latest`)
 
 ### Build Steps
