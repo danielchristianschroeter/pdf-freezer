@@ -27,6 +27,8 @@ tasks:
   build:backend:
     env:
       MACOSX_DEPLOYMENT_TARGET: '13.3'
+    vars:
+      EXE: '{{if eq OS "windows"}}.exe{{else}}{{end}}'
     cmds:
       - mkdir -p bin
-      - go build -o bin/pdf-freezer ./cmd/pdf-freezer
+      - go build -o bin/pdf-freezer{{.EXE}} ./cmd/pdf-freezer
