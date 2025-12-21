@@ -308,8 +308,9 @@
         </select>
       </div>
       <div class="setting-row">
-        <label>File Suffix</label>
+        <label for="file-suffix">File Suffix</label>
         <input
+          id="file-suffix"
           type="text"
           bind:value={fileSuffix}
           maxlength="15"

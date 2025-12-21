@@ -1,14 +1,18 @@
-version: '3'
-
 tasks:
   build:
     desc: Build the application
     cmds:
+      - wails3 generate bindings -d frontend/bindings
       - task: build:frontend
       - task: build:backend
 
   # Wails 3 on Mac calls this
   darwin:build:
+    cmds:
+      - task: build
+
+  # Wails 3 on Windows calls this
+  windows:build:
     cmds:
       - task: build
 
