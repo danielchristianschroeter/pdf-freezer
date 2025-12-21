@@ -276,8 +276,9 @@
   {#if showSettings}
     <div class="settings">
       <div class="setting-row">
-        <label>Prefix</label>
+        <label for="prefix">Prefix</label>
         <input
+          id="prefix"
           type="text"
           bind:value={prefix}
           maxlength="10"
@@ -285,13 +286,17 @@
         />
       </div>
       <div class="setting-row">
-        <label>Counter</label>
-        <input type="number" bind:value={counter} min="1" />
+        <label for="counter">Counter</label>
+        <input id="counter" type="number" bind:value={counter} min="1" />
         <button class="btn-sm" on:click={updateCounter}>Set</button>
       </div>
       <div class="setting-row">
-        <label>Position</label>
-        <select bind:value={overlayPosition} on:change={savePosition}>
+        <label for="position">Position</label>
+        <select
+          id="position"
+          bind:value={overlayPosition}
+          on:change={savePosition}
+        >
           <option value="top-left">Top Left</option>
           <option value="top-right">Top Right</option>
           <option value="bottom-left">Bottom Left</option>
@@ -299,8 +304,12 @@
         </select>
       </div>
       <div class="setting-row">
-        <label>Compression</label>
-        <select bind:value={compressionLevel} on:change={saveCompression}>
+        <label for="compression">Compression</label>
+        <select
+          id="compression"
+          bind:value={compressionLevel}
+          on:change={saveCompression}
+        >
           <option value="none">None (High Quality)</option>
           <option value="low">Low (Good Quality)</option>
           <option value="medium">Medium (Standard)</option>

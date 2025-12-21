@@ -32,13 +32,16 @@ jobs:
           node-version: '24'
 
       - name: Install Wails
-        run: go install github.com/wailsapp/wails/v3/cmd/wails3@v3.0.0-alpha.50
+        run: |
+          go install github.com/wailsapp/wails/v3/cmd/wails3@v3.0.0-alpha.50
+          echo "$HOME/go/bin" >> $GITHUB_PATH
 
       # Windows Build Step
       - name: Build (Windows)
         if: matrix.os == 'windows-latest'
         shell: pwsh
         run: |
+          $env:PATH += ";$HOME\go\bin"
           wails3 build
           if (!(Test-Path "bin/pdf-freezer.exe")) {
             echo "Error: bin/pdf-freezer.exe not found."
