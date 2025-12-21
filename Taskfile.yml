@@ -28,4 +28,5 @@ tasks:
     env:
       MACOSX_DEPLOYMENT_TARGET: '13.3'
     cmds:
-      - go build -o pdf-freezer ./cmd/pdf-freezer
+      - mkdir -p bin
+      - go build -o bin/pdf-freezer ./cmd/pdf-freezer
