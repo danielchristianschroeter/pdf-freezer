@@ -27,7 +27,7 @@ pdf-freezer/
 ## Prerequisites
 
 - **Go** 1.25+
-- **Node.js** 16+
+- **Node.js** 24+
 - **Ghostscript**: Required for rendering engine.
   - **macOS**: `brew install ghostscript`
   - **Windows**: Install [Ghostscript](https://ghostscript.com/releases/gsdnld.html).
