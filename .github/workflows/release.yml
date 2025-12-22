@@ -43,7 +43,9 @@ jobs:
         run: |
           $env:PATH += ";$HOME\go\bin"
           wails3 build
-          if (!(Test-Path "bin/pdf-freezer.exe")) {
+          if (Test-Path "bin/pdf-freezer.exe") {
+            Move-Item "bin/pdf-freezer.exe" "bin/pdf-freezer-${{ github.ref_name }}-windows.exe"
+          } else {
             echo "Error: bin/pdf-freezer.exe not found."
             Get-ChildItem -Recurse
             exit 1
@@ -55,7 +57,7 @@ jobs:
         run: |
           wails3 build
           if [ -f "bin/pdf-freezer" ]; then
-            cd bin && zip pdf-freezer-mac.zip pdf-freezer && cd ..
+            mv bin/pdf-freezer "bin/pdf-freezer-${{ github.ref_name }}-macos"
           else
             echo "Error: bin/pdf-freezer not found."
             ls -R
@@ -68,6 +70,6 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         with:
           files: |
-            bin/*.exe
-            bin/*.zip
+            bin/pdf-freezer-${{ github.ref_name }}-windows.exe
+            bin/pdf-freezer-${{ github.ref_name }}-macos
           fail_on_unmatched_files: false

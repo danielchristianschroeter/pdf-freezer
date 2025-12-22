@@ -84,6 +84,22 @@ go build -o pdf-freezer ./cmd/pdf-freezer
 ./pdf-freezer
 ```
 
+## Installation & Security (macOS)
+
+Since the binary is not signed with an Apple Developer certificate, macOS will block it by default. 
+
+1. **Download** the `pdf-freezer-<version>-macos` binary.
+2. **Make it executable**:
+   ```bash
+   chmod +x ~/Downloads/pdf-freezer-*-macos
+   ```
+3. **Bypass Gatekeeper**:
+   - **Method A**: Right-click the file in Finder and select **Open**. Click **Open** again in the warning dialog.
+   - **Method B**: Run the following command in Terminal (adjusting filename as needed):
+     ```bash
+     xattr -d com.apple.quarantine ~/Downloads/pdf-freezer-*-macos
+     ```
+
 ## Configuration & Logs
 
 - **Config**: JSON settings are stored in `~/Library/Application Support/pdf-freezer/config.json` (Mac) or `%APPDATA%\pdf-freezer\config.json` (Windows).
